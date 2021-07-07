@@ -134,3 +134,12 @@ docker exec -it qinglong task test.js conc
   （21）0 15 10 ? * 6L 2002-2005   2002年至2005年的每月的最后一个星期五上午10:15触发 
 
   （22）0 15 10 ? * 6#3   每月的第三个星期五上午10:15触发
+  
+  
+  青龙 2.8.0 一键生成cookie.sh
+
+①docker exec -it qinglong bash
+
+②. /ql/shell/share.sh && . /ql/config/config.sh && echo $JD_COOKIE | tee /ql/config/cookie.sh
+
+
