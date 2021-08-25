@@ -1,0 +1,45 @@
+Ninja面板修复
+之前用过Ninja的建议停止容器然后删了ninja文件夹重新拉，没用过的不用删了直接拉
+ 
+查看容器
+docker ps
+停止容器
+docker stop 容器id  
+删除ninja
+rm -rf /root/ql/ninja
+重启容器
+docker restart 容器id
+进入容器
+docker exec -it qinglong bash
+
+ 国内鸡链接前面加个https://ghproxy.com/
+
+git clone https://github.com/MoonBegonia/ninja.git /ql/ninja
+cd /ql/ninja/backend
+git checkout .
+git pull
+rm -rf ql.js
+rm -rf user.js
+rm -rf .env
+wget https://raw.githubusercontent.com/TokiharaSay/TokiharaSay.github.io/master/.env
+wget https://raw.githubusercontent.com/MoonBegonia/ninja/deda6f0c0207f2bc0e10454fdbe99b3a9f3878a8/backend/ql.js
+wget https://raw.githubusercontent.com/MoonBegonia/ninja/deda6f0c0207f2bc0e10454fdbe99b3a9f3878a8/backend/user.js
+pnpm install
+pm2 start
+
+exit
+
+最后在青龙面板的把extra.sh里面添加
+cd /ql/ninja/backend
+git checkout .
+git pull
+rm -rf ql.js
+rm -rf user.js
+rm -rf .env
+wget https://raw.githubusercontent.com/TokiharaSay/TokiharaSay.github.io/master/.env
+wget https://raw.githubusercontent.com/MoonBegonia/ninja/deda6f0c0207f2bc0e10454fdbe99b3a9f3878a8/backend/ql.js
+wget https://raw.githubusercontent.com/MoonBegonia/ninja/deda6f0c0207f2bc0e10454fdbe99b3a9f3878a8/backend/user.js
+pnpm install
+pm2 start
+
+然后重启容器
